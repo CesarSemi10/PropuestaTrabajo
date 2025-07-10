@@ -1,0 +1,80 @@
+.menu-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #00c3ff 0%, #3a7bd5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-container {
+  background: #fff;
+  padding: 2.7rem 2.5rem 2.3rem 2.5rem;
+  border-radius: 22px;
+  box-shadow: 0 8px 36px #009be633, 0 2px 10px #0002;
+  min-width: 340px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-container h2 {
+  font-size: 2rem;
+  color: #2872c5;
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.menu-opciones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  width: 100%;
+  margin-top: 0.7rem;
+}
+
+.menu-btn {
+  background: linear-gradient(90deg, #3a7bd5 0%, #00c6fb 100%);
+  color: #fff;
+  padding: 1rem 1.7rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #009be622;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background 0.2s, transform 0.1s;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background: linear-gradient(90deg, #00c6fb 0%, #3a7bd5 100%);
+    transform: scale(1.04) translateY(-2px);
+    box-shadow: 0 4px 16px #009be622;
+  }
+}
+
+.menu-btn span {
+  font-size: 1.3em;
+}
+
+.menu-btn.cerrar {
+  background: linear-gradient(90deg, #fd5e53 0%, #f99b4a 100%);
+  margin-top: 0.6rem;
+  &:hover {
+    background: linear-gradient(90deg, #f99b4a 0%, #fd5e53 100%);
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-opciones {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+  }
+  .menu-container {
+    min-width: 400px;
+  }
+}

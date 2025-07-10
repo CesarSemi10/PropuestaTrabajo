@@ -1,0 +1,22 @@
+<div class="menu-bg">
+  <div class="menu-container">
+    <h2>Menú Principal</h2>
+    <div class="menu-opciones">
+      <button routerLink="/compras" class="menu-btn">
+        <span>🛒</span> Registrar compra
+      </button>
+      <button routerLink="/ventas" class="menu-btn">
+        <span>💰</span> Registrar venta
+      </button>
+      <button routerLink="/productos" class="menu-btn">
+        <span>📦</span> Productos
+      </button>
+      <button routerLink="/kardex" class="menu-btn">
+        <span>📑</span> Kardex
+      </button>
+      <button (click)="logout()" class="menu-btn cerrar">
+        <span>🚪</span> Cerrar sesión
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+.productos-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #38b6ff 0%, #0077b6 100%);
+}
+
+.productos-form {
+  background: #fff;
+  padding: 2rem 6rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(56,182,255,0.20), 0 1.5px 6px #3332;
+  min-width: 350px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: #0077b6;
+    letter-spacing: 1px;
+  }
+
+  label {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    color: #0077b6;
+    display: block;
+  }
+
+  input {
+    padding: 0.65rem 1rem;
+    border: 1px solid #b5e6fb;
+    border-radius: 10px;
+    outline: none;
+    transition: border 0.2s;
+    font-size: 1rem;
+    width: 100%;
+
+    &:focus {
+      border: 1.5px solid #009be6;
+      background: #f3faff;
+    }
+
+    &[disabled] {
+      background: #f6f7fa;
+      color: #888;
+      border-style: dashed;
+    }
+  }
+
+  button[type="submit"] {
+    background: linear-gradient(90deg, #009be6, #00e0ff);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #009be611;
+    transition: background 0.2s, transform 0.1s;
+
+    &:hover {
+      background: linear-gradient(90deg, #0077b6, #38b6ff);
+      transform: translateY(-2px) scale(1.03);
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .mensaje {
+    margin-top: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+    color: #00a569;
+    background: #e9f7ef;
+    border-radius: 7px;
+    padding: 0.6rem;
+    box-shadow: 0 1px 5px #00e0ff22;
+    animation: mensajeFadeIn 0.6s;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+  }
+}
+
+@keyframes mensajeFadeIn {
+  0% { opacity: 0; transform: translateY(18px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+.btn-menu-principal {
+  background: linear-gradient(90deg, #38b6ff, #009be6);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 1.4rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 1.5px 6px #38b6ff33;
+  transition: background 0.2s, transform 0.1s;
+  margin-right: 1rem;
+
+  &:hover {
+    background: linear-gradient(90deg, #009be6, #38b6ff);
+    transform: scale(1.04) translateY(-2px);
+  }
+}

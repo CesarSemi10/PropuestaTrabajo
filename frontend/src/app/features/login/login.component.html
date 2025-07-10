@@ -1,0 +1,16 @@
+<div class="login-bg">
+  <form class="login-form" (ngSubmit)="login()">
+    <h2>Iniciar Sesión</h2>
+    <div class="input-group">
+  <label>Usuario</label>
+    <input [(ngModel)]="username" name="username" required autofocus />
+  </div>
+  <div class="input-group">
+    <label>Contraseña</label>
+    <input [(ngModel)]="password" name="password" type="password" required />
+  </div>
+
+    <button type="submit">Entrar</button>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </form>
+</div>

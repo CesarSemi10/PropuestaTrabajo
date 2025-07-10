@@ -1,0 +1,26 @@
+<div class="productos-bg">
+  <form class="productos-form" [formGroup]="productoForm" (ngSubmit)="registrarProducto()">
+    <h2>Registrar Producto</h2>
+    <button (click)="volverMenu()" class="btn-menu-principal">← Menú Principal</button>
+
+
+    <div>
+      <label>Nombre del producto</label>
+      <input formControlName="Nombre_Producto" required />
+    </div>
+    <div>
+      <label>Nro Lote</label>
+      <input formControlName="NroLote" required />
+    </div>
+    <div>
+      <label>Costo</label>
+      <input type="number" formControlName="Costo" min="0.01" (input)="calcularPrecioVenta()" required />
+    </div>
+    <div>
+      <label>Precio Venta (auto)</label>
+      <input type="number" formControlName="PrecioVenta"/>
+    </div>
+    <button type="submit" [disabled]="productoForm.invalid">Registrar</button>
+    <div class="mensaje" *ngIf="mensaje">{{ mensaje }}</div>
+  </form>
+</div>

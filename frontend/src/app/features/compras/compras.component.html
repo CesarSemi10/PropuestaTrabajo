@@ -1,0 +1,52 @@
+<div class="compras-bg">
+  <form class="compras-form" [formGroup]="compraForm" (ngSubmit)="registrarCompra()">
+    <h2>Registrar Compra</h2>
+  <button (click)="volverMenu()" class="btn-menu-principal">← Menú Principal</button>
+
+    <div formArrayName="detalles">
+      <div *ngFor="let detalle of detalles.controls; let i = index" [formGroupName]="i" class="detalle-row">
+  <div>
+    <label>Producto</label>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <select formControlName="productoId">
+        <option value="">-- Producto --</option>
+        <option *ngFor="let p of productos" [value]="p.id_Producto">{{ p.nombre_Producto }}</option>
+      </select>
+      <button type="button" (click)="abrirModal()" title="Nuevo producto">+</button>
+    </div>
+  </div>
+  <div>
+    <label>Cantidad</label>
+    <input type="number" formControlName="cantidad" min="1" placeholder="Cantidad">
+  </div>
+  <div>
+    <label>Precio</label>
+    <input type="number" formControlName="precio" min="0.01" step="0.01" placeholder="Precio">
+  </div>
+  <div style="margin-top: 0.6rem;">
+    <button type="button" (click)="quitarDetalle(i)" *ngIf="detalles.length > 1">Quitar</button>
+  </div>
+  <hr *ngIf="detalles.length > 1 && i < detalles.length - 1" />
+</div>
+
+
+    </div>
+    <button type="button" (click)="agregarDetalle()">Agregar producto</button>
+    <button type="submit" [disabled]="compraForm.invalid">Registrar Compra</button>
+    <div class="mensaje" *ngIf="mensaje">{{ mensaje }}</div>
+  </form>
+
+  <!-- Modal para nuevo producto -->
+  <div class="modal-bg" *ngIf="showModal">
+    <div class="modal">
+      <h3>Registrar Nuevo Producto</h3>
+      <form (ngSubmit)="registrarProductoNuevo()">
+        <input [(ngModel)]="nuevoProducto.nombre_Producto" name="nombre_Producto" placeholder="Nombre" required>
+        <input [(ngModel)]="nuevoProducto.nroLote" name="nroLote" placeholder="Nro Lote" required>
+        <input type="number" [(ngModel)]="nuevoProducto.costo" name="costo" placeholder="Costo" required min="0.01">
+        <button type="submit" [disabled]="!nuevoProducto.nombre_Producto || !nuevoProducto.nroLote || !(nuevoProducto.costo > 0)">Registrar</button>
+        <button type="button" (click)="cerrarModal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

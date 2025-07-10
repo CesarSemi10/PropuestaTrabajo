@@ -1,0 +1,60 @@
+<div class="kardex-bg">
+  <div class="kardex-table-container">
+    <h2>Kardex de Productos</h2>
+    <button (click)="volverMenu()" class="btn-menu-principal">← Menú Principal</button>
+
+
+    <table class="kardex-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Stock Actual</th>
+          <th>Costo</th>
+          <th>Precio Venta</th>
+          <th>Movimientos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of productos">
+            <td>{{ prod.id_Producto }}</td>
+            <td>{{ prod.nombre_Producto }}</td>
+            <td>{{ prod.stock }}</td>
+            <td>{{ prod.costo }}</td>
+            <td>{{ prod.precioVenta | number:'1.2-2' }}</td>
+            <td>
+            <button (click)="verMovimientos(prod)">Ver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal de movimientos -->
+  <div class="modal-bg" *ngIf="showModal">
+    <div class="modal">
+      <h3>Movimientos de {{ productoSeleccionado?.Nombre_Producto }}</h3>
+      <table class="mov-table" *ngIf="movimientos.length; else sinMov">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of movimientos">
+            <td>{{ m.Fec_registro | date:'short' }}</td>
+            <td>{{ tipoMovimiento(m.Id_TipoMovimiento) }}</td>
+            <td>{{ m.Cantidad }}</td>
+            </tr>
+
+        </tbody>
+      </table>
+      <ng-template #sinMov>
+        <p>No hay movimientos.</p>
+      </ng-template>
+      <button (click)="cerrarModal()" style="margin-top: 1.2rem;">Cerrar</button>
+    </div>
+  </div>
+</div>
